@@ -1,0 +1,11 @@
+*** INSTALACION  ***
+
+1. copiar carpeta crud-inspinia a:
+	
+	/usr/local/lib/node_modules/generator-meanjs
+
+2. Ejecutar con el siguiente comando dentro de la carpeta del proyecto:
+
+	yo meansjs:crud-inspinia
+
+3. Seguir las instrucciones del generador de codigo, como resultado se espera una carpeta con toda la estructura dentro de "modules"
