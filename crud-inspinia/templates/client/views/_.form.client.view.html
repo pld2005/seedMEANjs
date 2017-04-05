@@ -1,0 +1,78 @@
+<section>
+  <div class="row wrapper border-bottom white-bg page-heading">
+      <div class="col-lg-10">
+          <h2>{{vm.<%= slugifiedSingularName %>._id ? 'Edición' : 'Creación'}} de <%= humanizedSingularName %></h2>
+          <ol class="breadcrumb">
+              <li>
+                  <a href="#/">Inicio</a>
+              </li>
+              <li>
+                  <a href="<%= slugifiedPluralName %>"><%= humanizedPluralName %></a>
+              </li>
+              <li class="active">
+                  <strong>{{vm.<%= slugifiedSingularName %>._id ? 'Edición' : 'Nuevo'}}</strong>
+              </li>
+          </ol>
+      </div>
+      <div class="col-lg-2">
+
+      </div>
+  </div>
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <!---------------------------------------- HEADER -------------------------------------------->
+          <!--div class="ibox-title"> 
+            <h5>Título <small>descripcion.</small></h5>
+            <div class="ibox-tools">
+              <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+              </a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-wrench"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-user">
+                <li><a href="#">Config option 1</a>
+                </li>
+                <li><a href="#">Config option 2</a>
+                </li> 
+              </ul>
+              <a class="close-link">
+                <i class="fa fa-times"></i>
+              </a>
+            </div>
+          </div-->
+          <!---------------------------------------- CONTENIDO -------------------------------------------->
+          <div class="ibox-content">
+            <form name="vm.form.<%= slugifiedSingularName %>Form" class="form-horizontal" ng-submit="vm.save(vm.form.<%= slugifiedSingularName %>Form.$valid)" novalidate>
+              <fieldset>
+                <!---------------- INI CAMPO ------------------>
+                <div class="form-group" show-errors>
+                  <label class="col-sm-2 control-label" for="name">Nombre</label>
+                  <div class="col-sm-10">
+                    <input name="name" type="text" ng-model="vm.<%= slugifiedSingularName %>.name" id="name" class="form-control col-sm-10" placeholder="Name" required>
+                    <div ng-messages="vm.form.<%= slugifiedSingularName %>Form.name.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required"><%= humanizedSingularName %> es obligatorio.</p>
+                    </div>
+                  </div>              
+                </div>
+                <!---------------- FIN CAMPO ------------------>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                  <div class="col-sm-4 col-sm-offset-2">
+                    <a class="btn btn-white" href="/categories">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">{{vm.<%= slugifiedSingularName %>._id ? 'Actualizar' : 'Crear'}}</button>
+                  </div>
+                </div>
+                <div class="alert alert-danger" ng-show="vm.error">
+                  <strong ng-bind="vm.error"></strong>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
